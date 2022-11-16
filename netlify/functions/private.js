@@ -5,6 +5,6 @@ export const handler = async (event) => {
   // Other properties such as headers or body can also be included.
   return {
     statusCode: 200,
-    body: JSON.stringify(fakeResponse())
+    body: fakeResponse()
   }
 }

@@ -10,7 +10,9 @@ const generateRandomString = (myLength) => {
   return randomString;
 };
 
-export const fakeResponse = () => {
+const fakeResponse = () => {
   const length = Math.floor(Math.random() * 25) * 30 + 25
   return generateRandomString(length)
 }
+
+export default fakeResponse;
