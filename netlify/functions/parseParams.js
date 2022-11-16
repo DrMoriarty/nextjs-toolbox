@@ -15,7 +15,12 @@ const parseParams = (event) => {
   params['country2'] = query.country2 || body.country2 || ""
   params['operator'] = query.operator || body.operator || query.Operator || body.Operator || ""
   params['bid'] = query.bid || body.bid || ""
-  params['proxied_ip'] = event.headers["client-ip"] || event.headers["x-forwarded-for"] || ""
+  var ip = event.headers["client-ip"] || event.headers["x-forwarded-for"] || ""
+  if (ip.includes(", ")) {
+    var ips = ip.split(", ");
+    ip = ips[0]
+  }
+  params['proxied_ip'] = ip
   
   return params;
 }
